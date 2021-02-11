@@ -21,7 +21,9 @@ namespace NUnitTestProject
         {
             program = new Program();
         }
-        
+        /// <summary>
+        /// UC-1 Given person details and set values to person list
+        /// </summary>
         [Test]
         public void GivenPersonDetailSetValuesPersonList()
         {
