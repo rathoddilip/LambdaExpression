@@ -10,6 +10,7 @@ namespace LambdaExpression
             var personList = new List<Person>();
             Program program = new Program();
             program.AddPersonDetail(personList);
+            program.RetrieveTopTwoRecordsBelow60(personList);
         }
         public List<Person> AddPersonDetail(List<Person>personList)
         {
@@ -20,6 +21,14 @@ namespace LambdaExpression
             personList.Add(new Person() { SSL = 5, Name = "Ranya", Age = 15, Address = "Hyderabad" });
 
             return personList;
+        }
+        public void RetrieveTopTwoRecordsBelow60(List<Person> personList)
+        {
+            var result = personList.FindAll(age => age.Age <= 60);
+            foreach(Person person in result)
+            {
+                Console.WriteLine("person Name= "+person.Name +","+ "person age= "+person.Age);
+            }
         }
     }
 }
