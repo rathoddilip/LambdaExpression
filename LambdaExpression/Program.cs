@@ -12,6 +12,7 @@ namespace LambdaExpression
             Program program = new Program();
             program.AddPersonDetail(personList);
             program.RetrieveTopTwoRecordsBelow60(personList);
+            program.RetrieveAllRecordsAgeBetween13To18(personList);
         }
         public List<Person> AddPersonDetail(List<Person>personList)
         {
@@ -29,6 +30,15 @@ namespace LambdaExpression
             foreach(Person person in result)
             {
                 Console.WriteLine("person Name= "+person.Name +","+ "person age= "+person.Age);
+            }
+        }
+        public void RetrieveAllRecordsAgeBetween13To18(List<Person> personList)
+        {
+            Console.WriteLine("Retrieve All record from the list for age between 13 to 18 ");
+            var result = personList.FindAll(age => age.Age > 13 && age.Age <= 18);
+            foreach (Person person in result)
+            {
+                Console.WriteLine("person Name= " + person.Name + "," + "person age= " + person.Age);
             }
         }
     }
