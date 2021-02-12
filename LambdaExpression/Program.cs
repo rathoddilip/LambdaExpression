@@ -13,6 +13,7 @@ namespace LambdaExpression
             program.AddPersonDetail(personList);
             program.RetrieveTopTwoRecordsBelow60(personList);
             program.RetrieveAllRecordsAgeBetween13To18(personList);
+            program.RetrievesAgeAverage(personList);
         }
         public List<Person> AddPersonDetail(List<Person>personList)
         {
@@ -41,5 +42,12 @@ namespace LambdaExpression
                 Console.WriteLine("person Name= " + person.Name + "," + "person age= " + person.Age);
             }
         }
+        public void RetrievesAgeAverage(List<Person> personList)
+        {
+            Console.WriteLine("Retrieves age average ");
+            double result = personList.Average(age=>age.Age);
+            Console.WriteLine("Age Average: "+result);    
+        }
+
     }
 }
