@@ -15,6 +15,7 @@ namespace LambdaExpression
             program.RetrieveAllRecordsAgeBetween13To18(personList);
             program.RetrievesAgeAverage(personList);
             program.CheckNameIsPresentOrNot(personList);
+            program.SkipedRecorForAgeIsLessthan60(personList);
         }
         public List<Person> AddPersonDetail(List<Person>personList)
         {
@@ -49,15 +50,30 @@ namespace LambdaExpression
             double result = personList.Average(age=>age.Age);
             Console.WriteLine("Age Average: "+result);    
         }
-        public void CheckNameIsPresentOrNot(List<Person> personList)
+        public Person CheckNameIsPresentOrNot(List<Person> personList)
         {
             Console.WriteLine("Check name is present or not  ");
             var result = personList.Where(name => name.Name == "Dilip").FirstOrDefault();
             if (result != null)
+            {
                 Console.WriteLine("Name is present");
+                return result;
+            }
             else
+            {
                 Console.WriteLine("Name is not present ");
-            
+                return result;
+            }
         }
+        public void SkipedRecorForAgeIsLessthan60(List<Person> personList)
+        {
+            Console.WriteLine("Skiped record from list for age is less than 60 ");
+            var result = personList.FindAll(age => age.Age > 60);
+            foreach (Person person in result)
+            {
+                Console.WriteLine("person Name= " + person.Name + "," + "person age= " + person.Age);
+            }
+        }
+
     }
 }
