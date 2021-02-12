@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LambdaExpression
 {
@@ -24,7 +25,7 @@ namespace LambdaExpression
         }
         public void RetrieveTopTwoRecordsBelow60(List<Person> personList)
         {
-            var result = personList.FindAll(age => age.Age <= 60);
+            var result = personList.FindAll(age => age.Age <= 60).Take(2);
             foreach(Person person in result)
             {
                 Console.WriteLine("person Name= "+person.Name +","+ "person age= "+person.Age);
